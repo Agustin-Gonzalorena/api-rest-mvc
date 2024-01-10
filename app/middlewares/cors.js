@@ -7,7 +7,7 @@ const ACCEPTED_ORIGINS = [
   "https://movies.com",
 ];
 
-export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
+export const corsMiddleware = ({ acceptedOrigins = "*" } = {}) =>
   cors({
     origin: (origin, callback) => {
       if (acceptedOrigins.includes(origin)) {
