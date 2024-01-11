@@ -1,7 +1,7 @@
 import cors from "cors";
 
 const ACCEPTED_ORIGINS = [
-  "http://localhost:5174",
+  "http://localhost:5173",
   "http://localhost:1234",
   "http://localhost:3000",
   "https://movies.com",
@@ -9,7 +9,7 @@ const ACCEPTED_ORIGINS = [
 
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
   cors({
-    origin: true /* (origin, callback) => {
+    origin: (origin, callback) => {
       if (acceptedOrigins.includes(origin)) {
         return callback(null, true);
       }
@@ -19,5 +19,5 @@ export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
       }
 
       return callback(new Error("Not allowed by CORS"));
-    }, */,
+    },
   });
